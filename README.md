@@ -156,3 +156,14 @@ payload.accountType.*admins map -> {
     adminInfo: $.name ++ $.company // perchè produce un array e non una stringa?
 }
 ```
+
+### mapObject
+```
+%dw 2.0
+output application/json
+---
+payload.accountType[0] mapObject (value, key) -> {
+ index: key,
+ accountInfo: value
+}
+```
