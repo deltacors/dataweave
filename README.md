@@ -1,6 +1,8 @@
 # Dataweave
 List of basic transformations using DataWeave
 
+## Part 1
+
 ### payload  
 This payload is used for the following examples
 ```
@@ -11,7 +13,7 @@ This payload is used for the following examples
 }
 ```
 
-## define global vars
+### define global vars
 ```
 %dw 2.0
 output application/json
@@ -19,7 +21,7 @@ var test = "hello world"
 ---
 ```
 
-## define local vars
+### define local vars
 ```
 %dw 2.0
 output application/json
@@ -27,7 +29,7 @@ output application/json
 using(test = "hello world") payload.exampleKey ++ test
 ```
 
-## define "inline" function
+### define "inline" function
 ```
 %dw 2.0
 output application/json
@@ -36,7 +38,7 @@ fun exampleFunction(args) = if(args.exampleKey == "Mulesoft") "A" else "B"
 exampleFunction(payload)
 ```
 
-## define "do" functions
+### define "do" functions
 ```
 %dw 2.0
 output application/json
@@ -47,7 +49,7 @@ fun exampleFunction(args) = do {
 exampleFunction(payload)
 ```
 
-## match function
+### match function
 ```
 %dw 2.0
 output application/json
@@ -55,4 +57,42 @@ fun exampleMatcher(args) = args.exampleKey match {
     case literalMatch: "String to check" -> "A"
     else -> "B" ++ $
 }
+```
+
+
+## Part 2
+
+### payload  
+This payload is used for the following examples
+```
+{
+  "entries": [
+    {
+      "firstName": "Max",
+      "lastName": "Mule",
+      "company": "MuleSoft",
+      "email": "maxthemule@mulesoft.com"
+    },
+    {
+      "firstName": "Astro",
+      "lastName": "Nomical",
+      "company": "Salesforce",
+      "email": "astro@salesforce.com"
+    },
+    {
+      "firstName": "Cloudy",
+      "lastName": "the Goat",
+      "company": "Salesforce",
+      "email": "cloudy@salesforce.com"
+    }
+  ]
+}
+```
+
+### dynamic elements
+```
+%dw 2.0
+output application/json
+---
+payload.entries[?(lower($.company) == "salesforce")]
 ```
