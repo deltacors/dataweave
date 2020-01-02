@@ -178,3 +178,30 @@ payload.accountType[0] pluck ((value, key, index) -> {
   "accountInfo" : (value)
 })
 ```
+
+### payload  
+This payload is used for the following examples
+```
+[
+  1,
+  2,
+  3,
+  4,
+  5
+]
+```
+
+### filter
+```
+%dw 2.0
+output application/json
+---
+payload filter ((item, index) -> (item >= 2))
+```
+or
+```
+%dw 2.0
+output application/json
+---
+payload filter ($$ >= 2)
+```
