@@ -167,3 +167,14 @@ payload.accountType[0] mapObject (value, key) -> {
  accountInfo: value
 }
 ```
+
+# pluck
+```
+%dw 2.0
+output application/json
+---
+payload.accountType[0] pluck ((value, key, index) -> {
+  (index): (key),
+  "accountInfo" : (value)
+})
+```
