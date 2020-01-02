@@ -153,6 +153,6 @@ output application/json
 ---
 payload.accountType.*admins map -> {
     index: $$,
-    adminInfo: $.name ++ $.company
+    adminInfo: $.name ++ $.company // perchè produce un array e non una stringa?
 }
 ```
