@@ -118,18 +118,18 @@ This payload is used for the following examples
     {
       "users": [
         {
-          "Name": "Jordan",
-          "Company": "MuleSoft"
+          "name": "Jordan",
+          "company": "MuleSoft"
         },
         {
-          "Name": "Bob",
-          "Company": "Salesforce"
+          "name": "Bob",
+          "company": "Salesforce"
         }
       ],
       "admins": [
         {
-          "Name": "Max",
-          "Company": "MuleSoft"
+          "name": "Max",
+          "company": "MuleSoft"
         }
       ]
     }
