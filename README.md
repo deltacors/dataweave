@@ -96,3 +96,15 @@ output application/json
 ---
 payload.entries[?(lower($.company) == "salesforce")]
 ```
+
+### map
+```
+%dw 2.0
+output application/json
+---
+payload map (item, index) -> {
+  "index": index,
+  "name": item.firstName ++ " " ++ item.lastName,
+  "company": item.company
+}
+```
