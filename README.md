@@ -205,3 +205,23 @@ output application/json
 ---
 payload filter ($$ >= 2)
 ```
+
+### payload  
+This payload is used for the following examples
+```
+{
+  "count1": 1,
+  "count2": 2,
+  "count3": 3,
+  "count4": 4,
+  "count5": 5
+}
+```
+
+### filterObject
+```
+%dw 2.0
+output application/json
+---
+payload filterObject (value, key, index) -> (value > 2)
+```
