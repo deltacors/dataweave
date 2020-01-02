@@ -8,8 +8,9 @@ This payload is used for the following examples
 ```
 {
     "firstName": "Max",
-    "lasttName": "Mule",
-    "company": "Microsoft"
+    "lastName": "Mule",
+    "company": "Mulesoft",
+    "exampleKey": "Test string"
 }
 ```
 
@@ -17,7 +18,7 @@ This payload is used for the following examples
 ```
 %dw 2.0
 output application/json
-var test = "hello world"
+var test = "Hello world"
 ---
 ```
 
@@ -106,5 +107,52 @@ payload map (item, index) -> {
   "index": index, // "index": $$ can be used too
   "name": item.firstName ++ " " ++ item.lastName,
   "company": item.company
+}
+```
+
+### payload  
+This payload is used for the following examples
+```
+{
+  "accountType": [
+    {
+      "users": [
+        {
+          "Name": "Jordan",
+          "Company": "MuleSoft"
+        },
+        {
+          "Name": "Bob",
+          "Company": "Salesforce"
+        }
+      ],
+      "admins": [
+        {
+          "Name": "Max",
+          "Company": "MuleSoft"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### mapping using selectors 
+```
+%dw 2.0
+output application/json
+---
+payload.accountType.*users map -> {
+    userInfo: $
+}
+```
+
+```
+%dw 2.0
+output application/json
+---
+payload.accountType.*admins map -> {
+    index: $$,
+    adminInfo: $.name ++ $.company
 }
 ```
