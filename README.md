@@ -168,7 +168,7 @@ payload.accountType[0] mapObject (value, key) -> {
 }
 ```
 
-# pluck
+### pluck
 ```
 %dw 2.0
 output application/json
