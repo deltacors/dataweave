@@ -1,6 +1,16 @@
 # Dataweave
 List of basic transformations using DataWeave
 
+### payload  
+This payload is used for the following examples
+```
+{
+    "firstName": "Max",
+    "lasttName": "Mule",
+    "company": "Microsoft"
+}
+```
+
 ## define global vars
 ```
 %dw 2.0
