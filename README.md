@@ -103,7 +103,7 @@ payload.entries[?(lower($.company) == "salesforce")]
 output application/json
 ---
 payload map (item, index) -> {
-  "index": index,
+  "index": index, // "index": $$ can be used too
   "name": item.firstName ++ " " ++ item.lastName,
   "company": item.company
 }
