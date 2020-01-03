@@ -244,3 +244,46 @@ output application/json
 ---
 payload reduce ($ + $$)
 ```
+
+
+## Part 1
+
+### payload  
+This payload is used for the following examples
+```
+[
+  2,
+  2,
+  2
+]
+```
+
+### math functions
+```
+%dw 2.0
+output application/json
+---
+random()
+```
+
+```
+%dw 2.0
+output application/json
+---
+sum(payload)
+```
+
+```
+%dw 2.0
+import * from dw::core::Numbers
+output application/json
+---
+{
+   a: toHex(123456789),
+   b: toBinary(123456789),
+   c: toRadixNumber(2,2),
+   d: fromHex("75bcd15"),
+   e: fromBinary(111010110111100110100010101),
+   f: fromRadixNumber("10",10)
+}
+```
