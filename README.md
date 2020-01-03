@@ -287,3 +287,28 @@ output application/json
    f: fromRadixNumber("10",10)
 }
 ```
+
+
+### splitBy
+```
+%dw 2.0
+output application/json
+---
+"192.168.0.1" splitBy "."
+```
+
+### generate UUID
+```
+%dw 2.0
+output application/json
+---
+uuid()
+```
+
+### replace
+```
+%dw 2.0
+output application/json
+---
+"TEST1234" replace "T" with "7"
+```
