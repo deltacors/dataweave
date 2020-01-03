@@ -225,3 +225,22 @@ output application/json
 ---
 payload filterObject (value, key, index) -> (value > 2)
 ```
+
+### payload  
+This payload is used for the following examples
+```
+[
+  5,
+  5,
+  5,
+  5
+]
+```
+
+### reduce
+```
+%dw 2.0
+output application/json
+---
+payload reduce ($ + $$)
+```
