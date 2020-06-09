@@ -331,3 +331,20 @@ output application/json
 ---
 flatten(payload) // [ 0.0, 0 1, 1, 2, 3, 5, 8 ]
 ```
+
+### update
+Change only a key of the payload
+```
+%dw 2.0
+import * from dw::util::Values
+output application/json
+var prova = {
+    id: 1,
+    attributes: {
+        a: "X",
+        b: "Y"
+    }
+}
+---
+prova update ["attributes", field("a")] with 2
+```
